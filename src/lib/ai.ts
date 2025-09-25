@@ -17,7 +17,7 @@ export interface GeneratedCaption {
 /**
  * Simulates calling the POST /analyze-photo endpoint.
  */
-export const analyzePhoto = async (imageUrl: string): Promise<AIThemeResponse> => {
+export const analyzePhoto = async (_imageUrl: string): Promise<AIThemeResponse> => {
   console.log('Simulating AI Photo Analysis...');
   await new Promise(resolve => setTimeout(resolve, 1500));
 
