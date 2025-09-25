@@ -1,0 +1,19 @@
+/* src/components/Uploader.css */
+.uploaderLabel {
+  display: block;
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-md);
+  text-align: center;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 18px;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  border: 1px solid transparent;
+}
+
+.uploaderLabel:hover {
+  background-color: #7a3d11;
+  transform: translateY(-2px);
+}

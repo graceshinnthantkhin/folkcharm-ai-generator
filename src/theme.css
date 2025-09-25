@@ -1,0 +1,33 @@
+/* :root contains all design variables for easy changes */
+:root {
+  /* Typography */
+  --font-serif: 'Lora', serif;
+  --font-sans: 'Inter', sans-serif;
+
+  /* Color Palette (inspired by folkcharm.com) */
+  --color-text: #3D2B1F; /* Earthy Brown */
+  --color-text-muted: #5A4D41; /* Earthy Gray */
+  --color-background: #FDF6E3; /* Parchment */
+  --color-primary: #8B4513; /* Saddle Brown */
+  --color-on-primary: #FFFFFF; /* White text on primary buttons */
+  --color-accent: #D2B48C; /* Tan */
+  --color-accent-soft: #F5EFE1; /* Soft Tan for backgrounds */
+  --color-border: #DCD0C0; /* Muted Border */
+
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  
+  --radius-md: 8px;
+  --radius-lg: 12px;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
