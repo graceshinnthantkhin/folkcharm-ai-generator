@@ -3,7 +3,7 @@ import { useState } from 'react';
 import './App.css';
 import { UploadView } from './components/UploadView';
 import { ResultView } from './components/ResultView';
-import type { AIThemeResponse, GeneratedStory } from './lib/ai';
+import type { GeneratedStory } from './lib/ai';
 
 export interface CreativeResult {
   sourceImage: string;
