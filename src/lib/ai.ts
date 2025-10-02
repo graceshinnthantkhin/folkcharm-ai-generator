@@ -1,43 +1,42 @@
-// This file simulates AI backend services.
+// src/lib/ai.ts
 
-// Represents the "Theme JSON" response from the Vision Analyzer
 export interface AIThemeResponse {
-  materials: string[];
-  colors: string[];
-  mood: string;
   theme: string;
 }
 
-// Represents the response from the Caption Generator
-export interface GeneratedCaption {
-  caption_text: string;
+export interface GeneratedStory {
+  title: string;
+  body: string;
   hashtags: string[];
 }
 
-/**
- * Simulates calling the POST /analyze-photo endpoint.
- */
-export const analyzePhoto = async (_imageUrl: string): Promise<AIThemeResponse> => {
+// This function can remain simple as the story is now guided by prompts
+export const analyzePhoto = async (imageUrl: string): Promise<AIThemeResponse> => {
   console.log('Simulating AI Photo Analysis...');
-  await new Promise(resolve => setTimeout(resolve, 1500));
-
-  return {
-    materials: ['Hand-spun Cotton', 'Natural Indigo Dye'],
-    colors: ['indigo', 'cream'],
-    mood: 'minimal',
-    theme: 'Indigo Dreams',
-  };
+  await new Promise(resolve => setTimeout(resolve, 1000));
+  return { theme: 'Indigo Dreams' };
 };
 
-/**
- * Simulates calling the POST /generate-caption endpoint.
- */
-export const generateCaption = async (theme: AIThemeResponse): Promise<GeneratedCaption> => {
-  console.log('Simulating AI Caption Generation...');
+// This is our new story generator
+export const generateStory = async (
+  theme: AIThemeResponse,
+  persona: string,
+  promptChoices: Record<string, string>
+): Promise<GeneratedStory> => {
+  console.log('Simulating AI Story Generation with:', { persona, promptChoices });
   await new Promise(resolve => setTimeout(resolve, 800));
 
-  const hashtags = ['#FolkCharm', '#handwoven', '#naturaldye', `#${theme.mood}`];
-  const caption_text = `Discover the serene, ${theme.mood} beauty of our new collection. Crafted from ${theme.materials.join(' and ')}, each piece tells a story of tradition and artistry.`;
-  
-  return { caption_text, hashtags };
+  // Combine the user's choices into a narrative
+  const storyBody = `${promptChoices.character}, who ${promptChoices.challenge}, ultimately ${promptChoices.resolution}`;
+
+  // Tailor the title based on the persona
+  const storyTitle = persona === 'idealist' 
+    ? `A Story of Comfort: ${theme.theme}`
+    : `An Icon of Style: ${theme.theme}`;
+
+  return {
+    title: storyTitle,
+    body: storyBody,
+    hashtags: ['#FolkCharm', '#storytelling', '#handcrafted', '#slowfashion'],
+  };
 };
